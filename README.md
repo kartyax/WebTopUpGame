@@ -80,4 +80,4 @@ Lihat dokumentasi lengkap endpoint di menu **[Dokumentasi API](http://localhost:
 - Jangan lupa cek file `prisma/schema.prisma` untuk melihat struktur database.
 - Logika utama ada di folder `app/api/`.
 
-Happy Coding! 🚀
+Happy Mumet!
