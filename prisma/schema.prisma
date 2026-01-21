@@ -1,0 +1,41 @@
+// Generator client untuk membuat library akses database (Prisma Client)
+generator client {
+  provider = "prisma-client-js"
+}
+
+// Konfigurasi koneksi database
+// Kita menggunakan SQLite karena mudah untuk belajar (file based), tidak perlu install server database terpisah.
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// Model Order: Menyimpan data transaksi top up
+model Order {
+  id        String   @id @default(uuid()) // ID unik, otomatis digenerate (UUID)
+  userId    String   // ID User di dalam game (misal: 123456)
+  zoneId    String?  // Zone ID (opsional, ada game yang butuh, ada yang tidak)
+  game      String   // Nama game (misal: Mobile Legends)
+  amount    Float    // Jumlah pembayaran
+  
+  // Status transaksi:
+  // PENDING = Baru dibuat, belum dibayar
+  // PAID = Sudah dibayar, menunggu kirim item
+  // PROCESS = Sedang dikirim ke provider game
+  // SUCCESS = Berhasil, item sudah masuk
+  // FAILED = Gagal
+  // EXPIRED = Tidak dibayar dalam batas waktu
+  status    String   @default("PENDING") 
+
+  createdAt DateTime @default(now()) // Waktu order dibuat
+  updatedAt DateTime @updatedAt      // Waktu order terakhir diupdate
+}
+
+// Model Log: Untuk mencatat sejarah apa yang terjadi di sistem (Audit Trail)
+model Log {
+  id        Int      @id @default(autoincrement())
+  level     String   // INFO, ERROR, WARN
+  message   String   // Pesan log, misal: "Payment received"
+  metadata  String?  // Data tambahan dalam format JSON (disimpan sebagai String karena SQLite terbatas)
+  createdAt DateTime @default(now())
+}
