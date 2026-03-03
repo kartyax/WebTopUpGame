@@ -26,7 +26,7 @@ class DatabaseSeeder extends Seeder
             'category' => 'Mobile Game',
             'has_server_id' => true,
             'description' => 'Top up diamond Mobile Legends: Bang Bang secara instan. Diamond langsung masuk ke akun game kamu.',
-            'image_url' => 'https://play-lh.googleusercontent.com/ha1VofHJCdlDAR2n6TnTqwPNZsGAEV4KXRKo9Jnp5_0ySZYcXfKiVLv2S5cCph8pLJQ=w480-h960-rw',
+            'image_url' => '/images/games/mobile-legends.png',
         ]);
 
         $ff = \App\Models\Game::create([
@@ -35,7 +35,7 @@ class DatabaseSeeder extends Seeder
             'category' => 'Mobile Game',
             'has_server_id' => false,
             'description' => 'Top up diamond Free Fire langsung ke akun. Proses cepat dan aman 24/7.',
-            'image_url' => 'https://play-lh.googleusercontent.com/WWcssdzTgvMijQ4vMXVrZGP57tGpLNYWAYGR9yQiGMNFm14hGACFTL-JbLFjRQ0G-dU=w480-h960-rw',
+            'image_url' => '/images/games/free-fire.png',
         ]);
 
         $pubg = \App\Models\Game::create([
@@ -44,7 +44,7 @@ class DatabaseSeeder extends Seeder
             'category' => 'Mobile Game',
             'has_server_id' => false,
             'description' => 'Top up UC PUBG Mobile dengan harga termurah dan proses tercepat.',
-            'image_url' => 'https://play-lh.googleusercontent.com/JsR4MDFr3GViieQKxdKWlQlEBnbf9tgbc5qxFfR9JMkfCUF4GQOsVaJhP_SQli0pCA=w480-h960-rw',
+            'image_url' => '/images/games/pubg-mobile.png',
         ]);
 
         $gi = \App\Models\Game::create([
@@ -53,7 +53,7 @@ class DatabaseSeeder extends Seeder
             'category' => 'PC / Mobile',
             'has_server_id' => true,
             'description' => 'Top up Genesis Crystal dan Blessing of the Welkin Moon Genshin Impact.',
-            'image_url' => 'https://play-lh.googleusercontent.com/gLemnLjIDkf_YHPdqFVFYCiZj8vY5bL1GNievGqYN6hVGHyQVcNzPuOG-hMXoObGPO8=w480-h960-rw',
+            'image_url' => '/images/games/genshin-impact.png',
         ]);
 
         $valo = \App\Models\Game::create([
@@ -62,7 +62,7 @@ class DatabaseSeeder extends Seeder
             'category' => 'PC Game',
             'has_server_id' => false,
             'description' => 'Top up Valorant Points (VP) untuk membeli skin dan battle pass.',
-            'image_url' => 'https://play-lh.googleusercontent.com/KeGMdpw01Mn6CjLMkASdCilVOpGsBpTSK_gMzVFXSfcJaDJIlPJzY7_JIjEahFHKYiU=w480-h960-rw',
+            'image_url' => '/images/games/valorant.png',
         ]);
 
         $hsr = \App\Models\Game::create([
@@ -71,7 +71,7 @@ class DatabaseSeeder extends Seeder
             'category' => 'PC / Mobile',
             'has_server_id' => true,
             'description' => 'Top up Oneiric Shard untuk Honkai: Star Rail. Proses instan dan aman.',
-            'image_url' => 'https://play-lh.googleusercontent.com/N2s0pCCq_kbZoHgNDjGuClcRlNaTFJMp_KIbIabjfGWaHVW-n7XUHSlBLJKWHi0sGLYa=w480-h960-rw',
+            'image_url' => '/images/games/honkai-star-rail.png',
         ]);
 
         $cod = \App\Models\Game::create([
@@ -80,7 +80,7 @@ class DatabaseSeeder extends Seeder
             'category' => 'Mobile Game',
             'has_server_id' => false,
             'description' => 'Top up CP (COD Points) untuk Call of Duty: Mobile.',
-            'image_url' => 'https://play-lh.googleusercontent.com/91gNLFRnifsKzgedpLCsKLRhExmpUkvJVCmi9V49mldFBXJLW-N_d3QQgYeDBbFgkQ=w480-h960-rw',
+            'image_url' => '/images/games/call-of-duty-mobile.png',
         ]);
 
         $aov = \App\Models\Game::create([
@@ -89,7 +89,7 @@ class DatabaseSeeder extends Seeder
             'category' => 'Mobile Game',
             'has_server_id' => false,
             'description' => 'Top up Voucher Arena of Valor (AOV) harga murah dan proses cepat.',
-            'image_url' => 'https://play-lh.googleusercontent.com/0_vINnssI35uh8LEuXWVJASN0rqKN4YQdqrHtPRhkjYkVIJz2EPEqB_g0m6_t5aq46I=w480-h960-rw',
+            'image_url' => '/images/games/arena-of-valor.png',
         ]);
 
         // ======== PRODUCTS ========
