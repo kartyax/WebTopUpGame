@@ -1,59 +1,155 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🎮 GameUp — Web Top Up Game
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Platform top-up game online dengan tampilan minimalis dan elegan. Dibangun pakai **Laravel 11**, **Blade**, **Tailwind CSS**, dan **Alpine.js**.
 
-## About Laravel
+Dark mode, clean UI, nuansa gaming yang subtle — bukan website top-up biasa 😎
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+---
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+## ✨ Fitur Utama
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+### 🛒 Storefront (Tanpa Login)
 
-## Learning Laravel
+- **Homepage** — Daftar 8 game populer dengan gambar icon keren
+- **Form Top-Up** — Pilih game → isi ID → pilih produk → pilih pembayaran → checkout
+- **Invoice** — Halaman invoice otomatis dengan detail pesanan & simulasi pembayaran
+- **Track Order** — Cari pesanan cuma pakai nomor invoice, ga perlu login
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework. You can also check out [Laravel Learn](https://laravel.com/learn), where you will be guided through building a modern Laravel application.
+### 🔐 Admin Dashboard (`/admin`)
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- **Dashboard** — Statistik revenue, total order, pending, katalog
+- **Kelola Games** — CRUD game (nama, slug, kategori, gambar, server ID)
+- **Kelola Produk** — CRUD produk per game (nama, harga, kode provider)
+- **Kelola Orders** — Lihat semua pesanan + detail per order
+- **Kelola Pembayaran** — CRUD metode pembayaran (fee flat, fee persen, instruksi)
 
-## Laravel Sponsors
+### 💳 Payment (Simulasi)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the [Laravel Partners program](https://partners.laravel.com).
+- QRIS, GoPay, OVO, Dana, BCA VA, BRI VA, Mandiri VA
+- Simulasi bayar langsung di halaman invoice (klik tombol → status jadi SUCCESS)
+- Siap diganti ke gateway asli (Midtrans/Tripay) kapan aja
 
-### Premium Partners
+---
 
-- **[Vehikl](https://vehikl.com)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel)**
-- **[DevSquad](https://devsquad.com/hire-laravel-developers)**
-- **[Redberry](https://redberry.international/laravel-development)**
-- **[Active Logic](https://activelogic.com)**
+## 🎮 Game yang Tersedia
 
-## Contributing
+| Game                | Kategori    | Produk                       |
+| ------------------- | ----------- | ---------------------------- |
+| Mobile Legends      | Mobile Game | 9 pilihan Diamond            |
+| Free Fire           | Mobile Game | 7 pilihan Diamond            |
+| PUBG Mobile         | Mobile Game | 4 pilihan UC                 |
+| Genshin Impact      | PC / Mobile | 5 pilihan (Crystal + Welkin) |
+| Valorant            | PC Game     | 5 pilihan VP                 |
+| Honkai: Star Rail   | PC / Mobile | 4 pilihan Oneiric Shard      |
+| Call of Duty Mobile | Mobile Game | 4 pilihan CP                 |
+| Arena of Valor      | Mobile Game | 4 pilihan Voucher            |
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+---
 
-## Code of Conduct
+## 🚀 Cara Install & Jalankan
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+```bash
+# 1. Clone repo
+git clone https://github.com/kartyax/WebTopUpGame.git
+cd WebTopUpGame
 
-## Security Vulnerabilities
+# 2. Install dependencies
+composer install
+npm install
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+# 3. Setup environment
+cp .env.example .env
+php artisan key:generate
 
-## License
+# 4. Buat database (SQLite udah default)
+touch database/database.sqlite
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+# 5. Migrasi + seed data dummy
+php artisan migrate:fresh --seed
+
+# 6. Build frontend assets
+npm run build
+
+# 7. Jalankan server
+php artisan serve
+```
+
+Buka `http://localhost:8000` dan voilà! 🎉
+
+---
+
+## 👤 Akun Admin Default
+
+| Email             | Password   |
+| ----------------- | ---------- |
+| `admin@admin.com` | `password` |
+
+Login di `/login`, terus langsung redirect ke `/admin`.
+
+---
+
+## 🛠 Tech Stack
+
+- **Backend**: Laravel 11.x (PHP 8.2+)
+- **Frontend**: Blade + Tailwind CSS + Alpine.js
+- **Database**: SQLite (dev), bisa ganti MySQL/PostgreSQL
+- **Build Tool**: Vite
+- **Auth**: Laravel Breeze
+
+---
+
+## 📁 Struktur Penting
+
+```
+app/
+├── Http/Controllers/
+│   ├── TopUpController.php      # Homepage + form top-up
+│   ├── OrderController.php      # Buat order + invoice + simulasi bayar
+│   ├── TrackOrderController.php # Cari pesanan via invoice
+│   └── AdminController.php      # Dashboard admin + CRUD
+├── Models/
+│   ├── Game.php, Product.php, Order.php
+│   ├── PaymentMethod.php, Promo.php
+│   └── User.php
+└── Http/Middleware/
+    └── IsAdmin.php              # Middleware cek role admin
+
+resources/views/
+├── topup/
+│   ├── index.blade.php          # Homepage daftar game
+│   └── show.blade.php           # Form top-up interaktif
+├── order/
+│   └── invoice.blade.php        # Halaman invoice
+├── track/
+│   └── index.blade.php          # Cari pesanan
+├── admin/
+│   ├── dashboard.blade.php      # Dashboard statistik
+│   ├── games/                   # CRUD games
+│   ├── products/                # CRUD produk
+│   ├── orders/                  # List + detail order
+│   └── payment-methods/         # CRUD metode pembayaran
+└── layouts/
+    └── admin.blade.php          # Layout sidebar admin
+```
+
+---
+
+## 📌 Roadmap / TODO
+
+- [ ] Integrasi Payment Gateway asli (Midtrans / Tripay)
+- [ ] Integrasi Provider Top-Up (Digiflazz / Smile.One / Unipin)
+- [ ] Sistem Promo & Voucher Diskon
+- [ ] Halaman Riwayat Transaksi untuk Member
+- [ ] Loyalty Points System
+- [ ] Live Chat / WhatsApp Support
+- [ ] Deploy ke production (VPS / shared hosting)
+
+---
+
+## 📄 Lisensi
+
+Project ini dibuat untuk keperluan pembelajaran dan portofolio personal.
+
+---
+
+> Built with ☕ and 🎮 by [@kartyax](https://github.com/kartyax)
