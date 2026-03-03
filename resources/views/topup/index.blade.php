@@ -20,9 +20,7 @@
                 </div>
                 <div class="hidden md:flex items-center space-x-10 text-sm font-medium">
                     <a href="{{ route('home') }}" class="text-white border-b-2 border-cyan-400 py-5">Home</a>
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors py-5">Games</a>
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors py-5">Track Order</a>
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors py-5">Support</a>
+                    <a href="{{ route('track.index') }}" class="text-gray-400 hover:text-white transition-colors py-5">Track Order</a>
                 </div>
                 <div class="flex items-center space-x-4">
                     @auth
@@ -69,7 +67,7 @@
                     </div>
                     <div class="p-5">
                         <h3 class="font-bold text-gray-100 group-hover:text-cyan-400 transition-colors tracking-wide text-lg mb-1">{{ $game->name }}</h3>
-                        <p class="text-xs text-gray-500 font-medium tracking-wide">Direct Top-Up</p>
+                        <p class="text-xs text-gray-500 font-medium tracking-wide">{{ $game->category ?? 'Direct Top-Up' }}</p>
                     </div>
                 </div>
             </a>

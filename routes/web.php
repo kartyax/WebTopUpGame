@@ -4,6 +4,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TopUpController;
 use App\Http\Controllers\OrderController;
 use App\Http\Controllers\AdminController;
+use App\Http\Controllers\TrackOrderController;
 use Illuminate\Support\Facades\Route;
 
 // ======== PUBLIC ROUTES ========
@@ -12,6 +13,9 @@ Route::get('/topup/{slug}', [TopUpController::class, 'show'])->name('topup.show'
 Route::post('/order', [OrderController::class, 'store'])->name('order.store');
 Route::get('/invoice/{invoice}', [OrderController::class, 'invoice'])->name('order.invoice');
 Route::post('/invoice/{invoice}/simulate-pay', [OrderController::class, 'simulatePay'])->name('order.simulate-pay');
+Route::get('/track', [TrackOrderController::class, 'index'])->name('track.index');
+Route::post('/track', [TrackOrderController::class, 'search'])->name('track.search');
+
 
 // ======== AUTH USER ROUTES ========
 Route::get('/dashboard', function () {
